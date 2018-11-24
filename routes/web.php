@@ -32,3 +32,19 @@ Route::get('HelloWorld', function () {
 });
 
 Route::get('HelloWorld_controller', 'HelloWorldController@HelloWorld');
+
+/*
+|--------------------------------------------------------------------------
+| 一個route多種接收
+|--------------------------------------------------------------------------
+有時候你可能需要註冊一個回應多種 HTTP 動詞的路由
+你可以使用 match 方法做到
+甚至可以透過 any 方法來註冊回應所有 HTTP 動詞的路由
+*/
+Route::match(['get', 'post'], 'get_and_post', function () {
+    //
+});
+
+Route::any('all_type', function () {
+    //
+});
