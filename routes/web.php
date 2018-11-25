@@ -135,3 +135,18 @@ Route::prefix('加入前綴的route')->group(function () {
     // route::get('加入前綴的route/有前綴的route2)
     Route::get('有前綴的route2', function () { dump('route = '.asset('').'加入前綴的route/有前綴的route2'); });
 });
+
+/*
+|--------------------------------------------------------------------------
+| 可以用middleware跟group來限制某些route經過某些指定的middleware
+|--------------------------------------------------------------------------
+＃中介層創立之後必須去App\Http\Kernel註冊才能使用
+*/
+Route::middleware(['first_middleware', 'second_middleware'])->group(function () {
+    Route::get('使用first和second中介層1', function () {
+        // 使用 first 和 second 中介層
+    });
+    Route::get('使用first和second中介層2', function () {
+        // 使用 first 和 second 中介層
+    });
+});

@@ -60,6 +60,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'first_middleware' => \App\Http\Middleware\first_middleware::class, //創立中介層之後需註冊
+        'second_middleware' => \App\Http\Middleware\second_middleware::class, //創立中介層之後需註冊
     ];
 
     /**
