@@ -39,4 +39,39 @@ class HelloWorldController extends Controller
         }
 
     }
+
+    /**
+     * route接收的變數只能是int
+     * @param $int
+     */
+    public function inputOnlyInt($int) {
+        dump($int);
+    }
+
+    /**
+     * route接收的變數只能是大小寫英文字母
+     * @param $char
+     */
+    public function inputOnlyChar($char) {
+        dump($char);
+    }
+
+    /**
+     * route接收的變數第一個只能是int
+     * route接收的變數第二個只能是大小寫英文字母
+     * @param $int
+     * @param $char
+     */
+    public function inputIntAndChar($int, $char) {
+        dump($int);
+        dump($char);
+    }
+
+    /**
+     * 透過App\Providers\RouteServiceProvider設定id的統一通過規則只能是int
+     * @param $id
+     */
+    public function inputId_OnlyInt($id) {
+        dump($id);
+    }
 }

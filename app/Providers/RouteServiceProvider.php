@@ -23,7 +23,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //限制輸入id只能填入數字
+        Route::pattern('id', '[0-9]+');
 
         parent::boot();
     }

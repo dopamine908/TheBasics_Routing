@@ -93,3 +93,15 @@ Route::view('直接去view還帶變數', 'welcome', ['var' => '這是帶過來�
 Route::get('route帶入參數/{var1}/{var2}', 'HelloWorldController@inputVar1Var2');
 Route::get('route帶入參數_var2不一定要填入/{var1}/{var2?}', 'HelloWorldController@inputVar1Var2_Var2Free');
 
+/*
+|--------------------------------------------------------------------------
+| 在route帶入參數可以用正規表示法去過濾輸入的格式
+|--------------------------------------------------------------------------
+若使用不合法的輸入方式，則會導向404(預設)
+也可以在App\Providers\RouteServiceProvider設定什麼變數的統一通過規則（ex:第四個route）
+*/
+Route::get('只能填入數字/{number}', 'HelloWorldController@inputOnlyInt')->where('number', '[0-9]+');
+Route::get('只能填入大小寫英文字母/{char}', 'HelloWorldController@inputOnlyChar')->where('char', '[a-zA-Z]+');
+Route::get('多個變數多個限制/{number}/{char}', 'HelloWorldController@inputIntAndChar')
+    ->where(['number' => '[0-9]+', 'char' => '[a-zA-Z]+']);
+Route::get('輸入ID只能是數字/{id}', 'HelloWorldController@inputId_OnlyInt');
