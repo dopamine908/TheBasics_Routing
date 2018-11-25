@@ -105,3 +105,14 @@ Route::get('只能填入大小寫英文字母/{char}', 'HelloWorldController@inp
 Route::get('多個變數多個限制/{number}/{char}', 'HelloWorldController@inputIntAndChar')
     ->where(['number' => '[0-9]+', 'char' => '[a-zA-Z]+']);
 Route::get('輸入ID只能是數字/{id}', 'HelloWorldController@inputId_OnlyInt');
+
+/*
+|--------------------------------------------------------------------------
+| 可以對route另外取名字
+|--------------------------------------------------------------------------
+controller內有取了名字之後的對應用法
+*/
+Route::get('可以幫route取名字/{var?}', 'HelloWorldController@nameRoute')->name('named_route');
+Route::get('看一下取名字的route', 'HelloWorldController@checkOutNamedRoute');
+Route::get('對取過名字的route傳遞參數', 'HelloWorldController@passVarToNamedRoute');
+Route::get('重新導向到名為named_route的route', 'HelloWorldController@redirectToNamedRoute');

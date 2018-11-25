@@ -74,4 +74,38 @@ class HelloWorldController extends Controller
     public function inputId_OnlyInt($id) {
         dump($id);
     }
+
+    /**
+     * 取過名字的route
+     * @param null $input
+     */
+    public function nameRoute($input = null) {
+        dump('這是一個取過名字的route');
+        if(!is_null($input)) {
+            dump('傳遞進來的變數為:'.$input);
+        }
+    }
+
+    /**
+     * 取過名字的route可以用route()呼叫完整uri
+     */
+    public function checkOutNamedRoute() {
+        dump(route('named_route'));
+    }
+
+    /**
+     * 取過名字的route帶入變數的方式
+     */
+    public function passVarToNamedRoute() {
+        $var = '這是一個變數值';
+        dump(route('named_route', [ 'var' => $var]));
+    }
+
+    /**
+     * 重新導向取過名字的route的用法
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function redirectToNamedRoute() {
+        return redirect()->route('named_route');
+    }
 }
