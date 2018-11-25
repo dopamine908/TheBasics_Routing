@@ -116,3 +116,10 @@ Route::get('可以幫route取名字/{var?}', 'HelloWorldController@nameRoute')->
 Route::get('看一下取名字的route', 'HelloWorldController@checkOutNamedRoute');
 Route::get('對取過名字的route傳遞參數', 'HelloWorldController@passVarToNamedRoute');
 Route::get('重新導向到名為named_route的route', 'HelloWorldController@redirectToNamedRoute');
+
+/*
+|--------------------------------------------------------------------------
+| 可以在request中取得當前route及其命名的資訊並加以驗證
+|--------------------------------------------------------------------------
+*/
+Route::get('確認是某為當前route命名', 'HelloWorldController@checkRouteName')->name('check_name');

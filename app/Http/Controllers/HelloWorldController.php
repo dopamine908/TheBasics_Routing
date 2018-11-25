@@ -108,4 +108,15 @@ class HelloWorldController extends Controller
     public function redirectToNamedRoute() {
         return redirect()->route('named_route');
     }
+
+    /**
+     * 查看當前route & 確認當前route是否為某個名字
+     * @param Request $request
+     */
+    public function checkRouteName(Request $request) {
+        dump($request->route()); // \Illuminate\Routing\Route
+        dump($request->route()->named('check_name'));
+        dump($request->route()->named('false_name'));
+    }
+
 }
