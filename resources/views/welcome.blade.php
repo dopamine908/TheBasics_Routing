@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel @if(isset($var)) {{ $var }} @endif
                 </div>
 
                 <div class="links">
