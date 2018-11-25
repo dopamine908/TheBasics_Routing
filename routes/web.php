@@ -81,3 +81,15 @@ Route::get('there', function () {
 Route::view('直接去view', 'welcome');
 Route::view('直接去view還帶變數', 'welcome', ['var' => '這是帶過來的變數']);
 
+/*
+|--------------------------------------------------------------------------
+| 在route上填入要帶的參數（同傳統get方式， ex: www.xxx.com?var1=1&var2=2
+|--------------------------------------------------------------------------
+可以直接當作傳遞參數的接口使用
+參數依據順序填入（認順序不認名稱）
+參數後面打上"?"表示該參數可接收可不接收（但是這樣要在controller設定預設值）
+若使用不合法的輸入方式，例如在兩個變數都必須填入的時候只填入一個，則會導向404(預設)
+*/
+Route::get('route帶入參數/{var1}/{var2}', 'HelloWorldController@inputVar1Var2');
+Route::get('route帶入參數_var2不一定要填入/{var1}/{var2?}', 'HelloWorldController@inputVar1Var2_Var2Free');
+
