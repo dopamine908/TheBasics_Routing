@@ -123,3 +123,15 @@ Route::get('重新導向到名為named_route的route', 'HelloWorldController@red
 |--------------------------------------------------------------------------
 */
 Route::get('確認是某為當前route命名', 'HelloWorldController@checkRouteName')->name('check_name');
+
+/*
+|--------------------------------------------------------------------------
+| 可以用prefix跟group將route做分組或歸類
+|--------------------------------------------------------------------------
+*/
+Route::prefix('加入前綴的route')->group(function () {
+    // route::get('加入前綴的route/有前綴的route1)
+    Route::get('有前綴的route1', function () { dump('route = '.asset('').'加入前綴的route/有前綴的route1'); });
+    // route::get('加入前綴的route/有前綴的route2)
+    Route::get('有前綴的route2', function () { dump('route = '.asset('').'加入前綴的route/有前綴的route2'); });
+});
