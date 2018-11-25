@@ -150,3 +150,14 @@ Route::middleware(['first_middleware', 'second_middleware'])->group(function () 
         // 使用 first 和 second 中介層
     });
 });
+
+/*
+|--------------------------------------------------------------------------
+| controller若是有規劃namespace可以使用下面兩種方式
+|--------------------------------------------------------------------------
+*/
+Route::get('有規劃namespace的route1', 'Demo\HaveNameSpaceController@HelloWorld');
+Route::namespace('Demo')->group(function () {
+    // 「App\Http\Controllers\Demo」 命名空間下的控制器
+    Route::get('有規劃namespace的route2', 'HaveNameSpaceController@HelloWorld');
+});
