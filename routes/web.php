@@ -181,4 +181,14 @@ Route::get('斜線後面打migration的id可以直接取得migration資料/{migr
     dump($migration);
 });
 
+/*
+|--------------------------------------------------------------------------
+| 可在RouteServiceProvider設定好什麼值對應的預設model
+|--------------------------------------------------------------------------
+以這種方式及上面的方式綁定的model
+在沒找到值的時候會傳回404
+*/
+Route::get('已經在RouteServiceProvider綁定過UUUser就是對應User了/{UUUser}', function ($UUUser) {
+    dump($UUUser);
+});
 

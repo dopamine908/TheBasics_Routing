@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use App;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,9 @@ class RouteServiceProvider extends ServiceProvider
         Route::pattern('id', '[0-9]+');
 
         parent::boot();
+
+        //綁定{UUUser}對應到App\User Model
+        Route::model('UUUser', App\User::class);
     }
 
     /**
