@@ -192,3 +192,12 @@ Route::get('已經在RouteServiceProvider綁定過UUUser就是對應User了/{UUU
     dump($UUUser);
 });
 
+/*
+|--------------------------------------------------------------------------
+| 可在RouteServiceProvider設定想綁訂的規則
+|--------------------------------------------------------------------------
+*/
+Route::get('model綁定也可以自己寫規則/{UserName}', function ($UserName) {
+    dump($UserName);
+});
+

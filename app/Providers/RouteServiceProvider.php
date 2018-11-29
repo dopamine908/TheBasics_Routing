@@ -31,6 +31,11 @@ class RouteServiceProvider extends ServiceProvider
 
         //綁定{UUUser}對應到App\User Model
         Route::model('UUUser', App\User::class);
+
+        //{UserName}的綁定規則 找不到回404
+        Route::bind('UserName', function ($name) {
+            return App\User::where('name', $name)->first() ?? abort(404);
+        });
     }
 
     /**
