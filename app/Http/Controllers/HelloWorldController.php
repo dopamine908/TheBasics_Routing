@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class HelloWorldController extends Controller
 {
@@ -117,6 +118,19 @@ class HelloWorldController extends Controller
         dump($request->route()); // \Illuminate\Routing\Route
         dump($request->route()->named('check_name'));
         dump($request->route()->named('false_name'));
+    }
+
+    /**
+     * 一些可以看route資訊的function
+     */
+    public function someRouteFunction() {
+        $route = Route::current();
+        $name = Route::currentRouteName();
+        $action = Route::currentRouteAction();
+
+        dump($route);
+        dump($name);
+        dump($action);
     }
 
 }

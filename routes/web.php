@@ -201,3 +201,10 @@ Route::get('model綁定也可以自己寫規則/{UserName}', function ($UserName
     dump($UserName);
 });
 
+/*
+|--------------------------------------------------------------------------
+| 一些可以看route資訊的function
+|--------------------------------------------------------------------------
+*/
+Route::get('一些可以看route資訊的function', 'HelloWorldController@someRouteFunction')->name('ThisIsARoute');
+
