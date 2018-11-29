@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 /*
 |--------------------------------------------------------------------------
 | definition: Illuminate\Routing\Router
@@ -161,3 +165,20 @@ Route::namespace('Demo')->group(function () {
     // 「App\Http\Controllers\Demo」 命名空間下的控制器
     Route::get('有規劃namespace的route2', 'HaveNameSpaceController@HelloWorld');
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| 可將接取的變數綁定 Eloquent 模型, 則變數直接輸入id就可取得對應的資料
+|--------------------------------------------------------------------------
+{}內的值必須＝＄的變數名稱
+*/
+Route::get('斜線後面打user的id可以直接取得user資料/{user}', function (App\User $user) {
+    dump($user);
+});
+
+Route::get('斜線後面打migration的id可以直接取得migration資料/{migration}', function (App\Migration $migration) {
+    dump($migration);
+});
+
+
